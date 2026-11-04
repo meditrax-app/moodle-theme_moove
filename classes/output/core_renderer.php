@@ -467,7 +467,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             return '';
         }
 
-        if ($PAGE->pagetype !== 'course-view-' . $course->format) {
+        if (($PAGE->pagetype !== 'course-view-' . $course->format) || ($PAGE->pagelayout == 'incourse')) {
             return '';
         }
 

@@ -53,6 +53,11 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => ['langmenu' => true],
     ],
+    'incourse' => [
+        'file' => 'incourse.php',
+        'regions' => ['side-pre'],
+        'defaultregion' => 'side-pre',
+    ],
     'login' => [
         'file' => 'login.php',
         'regions' => [],

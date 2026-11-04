@@ -30,26 +30,14 @@ require_once($CFG->dirroot . '/course/lib.php');
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
-$courseindexopen = true;
+$courseindexopen = false;
+$courseindex = '';
 
 $extraclasses = ['uses-drawers'];
-if ($courseindexopen) {
-    $extraclasses[] = 'drawer-open-index';
-}
+
 
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbutton));
-
-$themesettings = new \theme_moove\util\settings();
-if (!$themesettings->enablecourseindex) {
-    $courseindex = '';
-} else {
-    $courseindex = core_course_drawer();
-}
-
-if (!$courseindex) {
-    $courseindexopen = false;
-}
 
 $secondarynavigation = false;
 $overflow = '';
