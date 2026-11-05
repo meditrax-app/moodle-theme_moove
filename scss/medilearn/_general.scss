@@ -28,6 +28,14 @@ body.pagelayout-course {
     }
 }
 
+body#page-admin-user,
+body#page-course-view-participants {
+    .btn:not(.search-icon),
+    .form-select {
+        border-radius: $border-radius-xxl;
+    }
+}
+
 // Cards
 .card-img,
 .card-img-top {
@@ -133,5 +141,39 @@ section.block {
     &:visited {
         background-color: $medilearn-grey !important;
         color: $brand-primary;
+    }
+}
+
+.table-responsive {
+    border: 2px solid $medilearn-grey;
+    border-radius: $border-radius-xl;
+}
+
+.table {
+    border-top: none;
+
+    thead {
+        tr th {
+            background-color: $medilearn-grey;
+            border-top: none;
+        }
+
+        tr th:first-of-type {
+            border-top-left-radius: $border-radius;
+        }
+
+        tr th:last-of-type {
+            border-top-right-radius: $border-radius;
+        }
+    }
+
+    tbody {
+        tr:last-child td:first-child {
+            border-bottom-left-radius: $border-radius;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: $border-radius;
+        }
     }
 }

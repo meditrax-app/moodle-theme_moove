@@ -32,9 +32,17 @@ along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
     }
 }}
 
-{{{ output.debug_footer_html }}}
+<footer class="footer-popover">
+    <div class="footer-content-debugging">
+        <div class="moove-container-fluid">
+            {{{ output.debug_footer_html }}}
 
-{{{ output.standard_end_of_body_html }}}
+            {{{ output.standard_end_of_body_html }}}
+        </div>
+    </div>
+</footer>
+
+
 
 {{#js}}
     require(['theme_boost/footer-popover'], function(FooterPopover) {
