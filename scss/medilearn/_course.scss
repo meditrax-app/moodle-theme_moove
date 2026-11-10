@@ -45,6 +45,10 @@
     }
 }
 
+.course-section .section-item .course-content-item-content .section-content-inner .activity-item:hover:not(:has(.delegated-section)) {
+    background-color: $medilearn-grey;
+}
+
 // Course header: course image on the left, name/category/progress on the right.
 .course-header {
     padding: 0 15px;
