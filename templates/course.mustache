@@ -106,6 +106,12 @@
                 <div id="region-main-box">
                     {{{ output.course_header }}}
 
+                    <div class="header-actions-container d-flex justify-content-end d-print-none" data-region="header-actions-container">
+                        {{#headeractions}}
+                            <div class="header-action ms-2">{{{.}}}</div>
+                        {{/headeractions}}
+                    </div>
+
                     {{#secondarymoremenu}}
                         <div class="secondary-navigation d-print-none">
                             {{> core/secondarymoremenu}}

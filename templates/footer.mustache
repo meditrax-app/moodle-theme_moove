@@ -35,6 +35,17 @@ along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 <footer class="footer-popover">
     <div class="footer-content-debugging">
         <div class="moove-container-fluid">
+            <div data-region="footer-container-popover">
+                {{#output.has_communication_links}}
+                    <button onclick="window.open('{{output.communication_url}}', '_blank', 'noreferrer')" class="btn btn-icon rounded-circle bg-primary text-white btn-footer-communication" aria-label="{{#str}}communicationroomlink, course{{/str}}">
+                        {{#pix}}t/messages-o, core{{/pix}}
+                    </button>
+                {{/output.has_communication_links}}
+                <button class="btn btn-icon rounded-circle bg-secondary btn-footer-popover" data-action="footer-popover" aria-label="{{#str}}showfooter, theme_boost{{/str}}">
+                    {{#pix}}e/question, core{{/pix}}
+                </button>
+            </div>
+
             {{{ output.debug_footer_html }}}
 
             {{{ output.standard_end_of_body_html }}}

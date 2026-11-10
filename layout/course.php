@@ -112,6 +112,7 @@ $templatecontext = [
     'addblockbutton' => $addblockbutton,
     'addcontentblockbutton' => $addcontentblockbutton,
     'contentblocks' => $contentblocks,
+    'headeractions' => $PAGE->get_header_actions(),
 ];
 
 $themesettings = new \theme_moove\util\settings();
