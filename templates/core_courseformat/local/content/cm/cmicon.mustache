@@ -1,0 +1,54 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_moove/core_courseformat/local/content/cm/cmicon
+
+    Displays a course module icon. When the activity is restricted by an
+    availability condition the user has not met yet (uservisible is false),
+    a closed padlock icon is shown instead of the module's own icon.
+
+    Example context (json):
+    {
+        "icon": "../../../pix/help.svg",
+        "iconclass": "",
+        "purpose": "content",
+        "branded": 0,
+        "modname": "resource",
+        "pluginname": "File",
+        "showtooltip": 1,
+        "uservisible": true
+    }
+}}
+<div class="activity-icon activityiconcontainer smaller {{#uservisible}}{{purpose}}{{/uservisible}} {{#branded}}isbranded{{/branded}} courseicon align-self-start me-2 {{^uservisible}}activityicon-locked{{/uservisible}}">
+    {{^uservisible}}
+        <span class="activityicon" data-region="activity-icon" data-id="{{cmid}}">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4M4.5 7A1.5 1.5 0 0 0 3 8.5v5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 11.5 7zM8 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3"></path>
+            </svg>
+        </span>
+    {{/uservisible}}
+    {{#uservisible}}
+        <img
+            src="{{{icon}}}"
+            class="activityicon {{iconclass}}"
+            data-region="activity-icon"
+            data-id="{{cmid}}"
+            alt="{{#showtooltip}}{{#cleanstr}} activityicon, moodle, {{{pluginname}}} {{/cleanstr}}{{/showtooltip}}"
+            {{#showtooltip}}title="{{{pluginname}}}"{{/showtooltip}}
+        >
+    {{/uservisible}}
+</div>
