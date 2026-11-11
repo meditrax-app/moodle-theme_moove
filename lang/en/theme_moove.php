@@ -210,3 +210,4 @@ $string['medilearn:welcome'] = 'Welcome Back. Here is what is next for you.';
 $string['medilearn:complete'] = 'complete';
 $string['medilearn:tapsquare'] = 'Tap a square to open it';
 $string['medilearn:coursecontents'] = 'Course contents';
+$string['medilearn:markedbyassessor'] = 'Marked by your assessor';

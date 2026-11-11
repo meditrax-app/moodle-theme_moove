@@ -1,0 +1,101 @@
+// Graded ("assessment" purpose) activity cards on the course page: assign,
+// quiz, workshop and any other module reporting FEATURE_MOD_PURPOSE as
+// MOD_PURPOSE_ASSESSMENT. This restyles the stock activity-item markup
+// rather than duplicating it, scoped by the data-activitypurpose="assessment"
+// attribute added in core_courseformat/local/content/cm.mustache; the extra
+// header row (activity type + "marked by your assessor") is added in the
+// core_courseformat/local/content/cm/cmname.mustache override and stays
+// hidden for every other activity type.
+.activity-assessment-meta {
+    display: none;
+}
+
+// Specificity needs to match scss/medilearn/_course.scss's
+// ".course-section .section-item .course-content-item-content
+// .section-content-inner .activity-item" rule (and its :hover variant) for
+// the card background/border to actually win the cascade.
+.course-section .section-item .course-content-item-content .section-content-inner {
+    .activity-item[data-activitypurpose="assessment"] {
+        background-color: $medilearn-grey;
+        border: 1px solid $medilearn-grey-border;
+        border-radius: $border-radius-xl;
+        padding: .75rem 1rem;
+
+        &:hover:not(:has(.delegated-section)) {
+            background-color: $medilearn-grey;
+        }
+    }
+}
+
+.activity-item[data-activitypurpose="assessment"] {
+    .activity-grid {
+        grid-template-columns: min-content 1fr min-content;
+        grid-template-areas:
+            "icon       name          actions"
+            ".          completion    actions"
+            ".          dates         dates"
+            "altcontent altcontent    altcontent"
+            "afterlink  afterlink     afterlink"
+            "groupmode  groupmode     groupmode"
+            "visibility visibility    visibility"
+            "availability availability availability";
+    }
+
+    .activity-icon.activityiconcontainer {
+        position: relative;
+        align-self: start;
+        background-color: $brand-primary;
+        border-radius: 50%;
+        padding: .45rem;
+
+        // Assessment activities show a plain "A" badge instead of the
+        // module's own icon, regardless of activity type (assign, quiz...).
+        .activityicon {
+            opacity: 0;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('[[pix:theme|badge-a]]') no-repeat center / 55% auto;
+        }
+    }
+
+    .activity-assessment-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: .5rem;
+        width: 100%;
+    }
+
+    .activity-assessment-type {
+        font-weight: $font-weight-bold;
+        color: $brand-primary;
+    }
+
+    .activity-assessment-marker {
+        color: var(--mds-text-muted);
+        font-size: $small-font-size;
+        white-space: nowrap;
+    }
+
+    .activityname {
+        font-weight: $font-weight-bold;
+    }
+
+    .activity-completion {
+        grid-area: completion;
+
+        .btn.btn-subtle-success,
+        .btn.btn-subtle-body {
+            border-radius: $border-radius-xxl;
+        }
+    }
+
+    .activity-dates {
+        grid-area: dates;
+        color: var(--mds-text-muted);
+    }
+}

@@ -57469,6 +57469,19 @@ body.path-mod-quiz .course-section .section-item .course-content-item-content .s
   color: var(--mds-text-muted);
 }
 
+.course-section .availabilityinfo {
+  background: none;
+  border: none;
+  padding: 0;
+}
+.course-section .availabilityinfo .icon.fa-lock {
+  display: none;
+}
+
+.course-section .section-item .course-content-item-content .section-content-inner .activity-item:hover:not(:has(.delegated-section)) {
+  background-color: #e8f2f8;
+}
+
 .course-header {
   padding: 0 15px;
   display: flex;
@@ -57609,4 +57622,77 @@ body.pagelayout-course .drawer-left .drawerheader .drawerheading {
 }
 #course-index.courseindex:not(.editing) .courseindex-sectioncontent > .courseindex-item[data-for=cm].pageitem:not(.stepper-current) .courseindex-link {
   color: #1d2125;
+}
+
+.activity-assessment-meta {
+  display: none;
+}
+
+.course-section .section-item .course-content-item-content .section-content-inner .activity-item[data-activitypurpose=assessment] {
+  background-color: #e8f2f8;
+  border: 1px solid #d5e3ec;
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+}
+.course-section .section-item .course-content-item-content .section-content-inner .activity-item[data-activitypurpose=assessment]:hover:not(:has(.delegated-section)) {
+  background-color: #e8f2f8;
+}
+
+.activity-item[data-activitypurpose=assessment] .activity-grid {
+  grid-template-columns: min-content 1fr min-content;
+  grid-template-areas: "icon       name          actions" ".          completion    actions" ".          dates         dates" "altcontent altcontent    altcontent" "afterlink  afterlink     afterlink" "groupmode  groupmode     groupmode" "visibility visibility    visibility" "availability availability availability";
+}
+.activity-item[data-activitypurpose=assessment] .activity-icon.activityiconcontainer {
+  position: relative;
+  align-self: start;
+  background-color: #025087;
+  border-radius: 50%;
+  padding: 0.45rem;
+}
+.activity-item[data-activitypurpose=assessment] .activity-icon.activityiconcontainer .activityicon {
+  opacity: 0;
+}
+.activity-item[data-activitypurpose=assessment] .activity-icon.activityiconcontainer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("[[pix:theme|badge-a]]") no-repeat center/55% auto;
+}
+.activity-item[data-activitypurpose=assessment] .activity-assessment-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+}
+.activity-item[data-activitypurpose=assessment] .activity-assessment-type {
+  font-weight: 700;
+  color: #025087;
+}
+.activity-item[data-activitypurpose=assessment] .activity-assessment-marker {
+  color: var(--mds-text-muted);
+  font-size: 0.875em;
+  white-space: nowrap;
+}
+.activity-item[data-activitypurpose=assessment] .activityname {
+  font-weight: 700;
+}
+.activity-item[data-activitypurpose=assessment] .activity-completion {
+  grid-area: completion;
+}
+.activity-item[data-activitypurpose=assessment] .activity-completion .btn.btn-subtle-success, .activity-item[data-activitypurpose=assessment] .activity-completion body.path-mod-quiz .moove-attempts-list .review-link a.btn-subtle-success, body.path-mod-quiz .moove-attempts-list .review-link .activity-item[data-activitypurpose=assessment] .activity-completion a.btn-subtle-success,
+.activity-item[data-activitypurpose=assessment] .activity-completion body.path-mod-quiz .btn-subtle-success.mod_quiz-next-nav,
+body.path-mod-quiz .activity-item[data-activitypurpose=assessment] .activity-completion .btn-subtle-success.mod_quiz-next-nav, .activity-item[data-activitypurpose=assessment] .activity-completion body.path-mod-quiz #mod_quiz_navblock .othernav .btn-subtle-success.endtestlink, body.path-mod-quiz #mod_quiz_navblock .othernav .activity-item[data-activitypurpose=assessment] .activity-completion .btn-subtle-success.endtestlink,
+.activity-item[data-activitypurpose=assessment] .activity-completion .btn.btn-subtle-body,
+.activity-item[data-activitypurpose=assessment] .activity-completion body.path-mod-quiz .moove-attempts-list .review-link a.btn-subtle-body,
+body.path-mod-quiz .moove-attempts-list .review-link .activity-item[data-activitypurpose=assessment] .activity-completion a.btn-subtle-body,
+.activity-item[data-activitypurpose=assessment] .activity-completion body.path-mod-quiz .btn-subtle-body.mod_quiz-next-nav,
+body.path-mod-quiz .activity-item[data-activitypurpose=assessment] .activity-completion .btn-subtle-body.mod_quiz-next-nav,
+.activity-item[data-activitypurpose=assessment] .activity-completion body.path-mod-quiz #mod_quiz_navblock .othernav .btn-subtle-body.endtestlink,
+body.path-mod-quiz #mod_quiz_navblock .othernav .activity-item[data-activitypurpose=assessment] .activity-completion .btn-subtle-body.endtestlink {
+  border-radius: 2rem;
+}
+.activity-item[data-activitypurpose=assessment] .activity-dates {
+  grid-area: dates;
+  color: var(--mds-text-muted);
 }
