@@ -35,3 +35,7 @@ Installation
 - Extract the content
 - Put the folder into the folder theme of your moodle
 - Access the notification area in moodle and install
+
+Upstream
+--------
+This is a fork of https://github.com/willianmano/moodle-theme_moove and should be set as an upstream remote to get upstream changes.
